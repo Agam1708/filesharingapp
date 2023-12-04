@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inshare</title>
+    <link rel="stylesheet" href="/style.css" >
+    
+</head>
+<body>
+    <section class = "upload-container">
+        <div class="dropzone"> 
+            <div class="img-container">
+                <img src="/file.svg" alt="file icon" draggable="false" class="center">
+            </div>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <div class="file">
+                    Drop your files here or, <span class="browsebtn">browse</span>
+                </div>
+                <div class="pwd-section">
+                    <input type="file" id="file" name="file">
+                    <label for="password">Password :</label>
+                    <input type="password" id="password" name="password"/>
+                    <button type="submit" id="subbtn">Share</button>
+                </div>  
+            </form> 
+        </div>
+        <div class="link">
+            
+            <% if(locals.fileLink != null) { %>
+                <p class="expire">Link expires in 24 hrs</p> 
+                <div class="input-container">
+                    <input type="text" id="fileUrl" value="<%= locals.fileLink %>">
+                    <img src="/copy-icon.svg" alt="copy-icon" id="copybtn">
+                </div>
+            <% } %>
+            
+        </div>
+    
+    </section>
+    <div class="toast">
+
+    </div>
+    <script src="/index.js"></script>
+</body>
+</html>
